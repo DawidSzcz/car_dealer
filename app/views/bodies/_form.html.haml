@@ -1,0 +1,15 @@
+= form_for @body do |c|
+  - if @body.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@body.errors.count, "error")} prohibited this song from being saved:"
+      %ul
+        - @body.errors.full_messages.each do |msg|
+          %li= msg
+
+  %div
+    = c.label :name
+    = c.text_field :name
+  %div
+    = c.label :doors
+    = c.number_field :doors
+  =c.submit

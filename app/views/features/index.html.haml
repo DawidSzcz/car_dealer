@@ -1,0 +1,15 @@
+%h1 Features
+%table
+  %tr
+    %th NAME
+  - @features.each do |b|
+    %tr
+      %td=b.name
+      %td=b.price
+      %td=link_to 'show', b
+      %td=link_to 'edit', edit_feature_path(b)
+      %td=link_to 'destroy', b, method: :delete, data: {confirm: "Are you sure?"}
+%br
+= link_to 'Create new ', new_feature_path
+%br
+=  link_to 'Back', cars_path

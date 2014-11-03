@@ -1,0 +1,29 @@
+= form_for @car do |c|
+  - if @car.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@car.errors.count, "error")} prohibited this song from being saved:"
+      %ul
+        - @car.errors.full_messages.each do |msg|
+          %li= msg
+
+  %div
+    = c.label :brand
+    = c.text_field :brand
+  %div
+    = c.label :model
+    = c.text_field :model
+  %div
+    = c.label :price
+    = c.label :price
+    = c.number_field :price
+  %div
+    = c.label :Body
+    = select(:body, :body_id, @bodies.map { |body| ["#{body.name} - #{body.doors} doors", body.id] })
+  %div
+    = c.label :Features
+    %br
+    -@features.each do |f|
+      =check_box_tag "feature_ids[]", f.id
+      "#{f.name} - #{f.price}$"
+      %br
+  =c.submit

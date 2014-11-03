@@ -1,0 +1,21 @@
+%table
+  %tr
+    %th Attribute
+    %th Value
+  %tr
+    %td Brand
+    %td
+      = @car.brand
+  %tr
+    %td Model
+    %td
+      = @car.model
+  %tr
+    %td Price
+    %td
+      = @car.price
+  %tr
+    %td Body
+    %td=@car.body
+= link_to 'Back', cars_path
+= link_to 'Edit', edit_car_path(@car)

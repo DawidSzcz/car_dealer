@@ -1,0 +1,42 @@
+%h1 Cars
+%ul
+  - @cars.each do |c|
+    %br
+    %li
+      CarID =
+      = c.id
+      = link_to 'show', c
+      = link_to 'edit', edit_car_path(c)
+      = link_to 'destroy', c, :method => :delete,:data => { :confirm => 'Are you sure?' }
+      %table
+        %tr
+          %th Attribute
+          %th Value
+        %tr
+          %td Brand
+          %td
+            = c.brand
+        %tr
+          %td Model
+          %td
+            = c.model
+        %tr
+          %td Price
+          %td
+            = c.price
+        %tr
+          %td Body
+          %td #{c.body.name} doors: #{c.body.doors}
+        %tr
+          %td Features
+          %td
+            -c.features.each do |f|
+              =f.name
+
+= link_to 'Create new ', new_car_path
+%br
+=  link_to 'Features', features_path
+%br
+= link_to 'Bodies', bodies_path
+%br
+= link_to 'Engines', engins_path

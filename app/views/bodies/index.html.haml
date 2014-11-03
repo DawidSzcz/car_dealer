@@ -1,0 +1,18 @@
+%h1 Bodies
+%table
+  %tr
+    %th ID
+    %th NAME
+    %th DOORS
+  - @bodies.each do |b|
+    %tr
+      %td=b.id
+      %td=b.name
+      %td=b.doors
+      %td=link_to 'show', b
+      %td=link_to 'edit', edit_body_path(b)
+      %td=link_to 'destroy', b, method: :delete, data: {confirm: "Are you sure?"}
+%br
+= link_to 'Create new ', new_body_path
+%br
+=  link_to 'Back', cars_path
